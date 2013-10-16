@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
+import java.util.Iterator;
 
 import javax.swing.JPanel;
 
@@ -76,7 +77,9 @@ public class WorldPanel extends JPanel {
 		/*
 		 * Loop through each entity and draw it onto the window.
 		 */
-		for(Entity entity : game.getEntities()) {
+		Iterator<Entity> iter = game.getEntities().iterator();
+		while(iter.hasNext()) {
+			Entity entity = iter.next();
 			/*
 			 * We should only draw the player if it is not dead, so we need to
 			 * ensure that the entity can be rendered.
